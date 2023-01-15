@@ -1,0 +1,20 @@
+{% load socialaccount %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Oauth with django</h1>
+    {% if user.is_authenticated %}
+        <h2>Hi {{ user.username }}</h2>
+        <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% provider_login_url 'google' %}">Login with Google</a>
+
+    {% endif %}
+</body>
+</html>
